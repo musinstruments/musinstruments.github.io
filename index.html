@@ -5,25 +5,51 @@
   <meta name="viewport" content="width=1200">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>MusInstruments</title>
-
-
-  <script src="jquery-1.8.3.min.js" type="text/javascript"></script>
-<script>
-$(document).ready(function(){
-$(".MenuItemContainer" ).click(function() {
-$('.sound').html('<audio id="soundcard" src="assets/error.wav"></audio>');
-document.getElementById("soundcard").play();
-});
-})
-</script>
-<div class="sound"> </div>
-
-
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@700&display=swap"
   rel="stylesheet">
+
+
+
 </head>
 <body>
+  <script>
+
+  function play1(){
+       var audio1 = document.getElementById("audio1");
+       audio1.play();
+                 }
+
+                 function play2(){
+                      var audio2 = document.getElementById("audio2");
+                      audio2.play();
+                                }
+
+                                function play3(){
+                                     var audio3 = document.getElementById("audio3");
+                                     audio3.play();
+                                               }
+
+
+        function stop1(){
+          var audio1 = document.getElementById("audio1");
+          audio1.pause();
+          audio1.currentTime = 0.0;
+  }
+
+          function stop2(){
+            var audio2 = document.getElementById("audio2");
+            audio2.pause();
+            audio2.currentTime = 0.0;
+  }
+            function stop3(){
+              var audio3 = document.getElementById("audio3");
+              audio3.pause();
+              audio3.currentTime = 0.0;
+        }
+   </script>
+
+
  <div class="tamplate">
 
 
@@ -33,9 +59,6 @@ document.getElementById("soundcard").play();
 
   <h1>Духови инструменти от майстор</h1>
 </div>
-
-
-
 
 <nav>
   <ul>
@@ -48,36 +71,13 @@ document.getElementById("soundcard").play();
 </ul>
 </nav>
 
-<audio preload="auto" id="s1" >s1.mp3</audio>
-<audio preload="auto" id="s2" >"s2.mp3"</audio>
-<audio preload="auto" id="s3" >"s3.mp3"</audio>
-
-<script src="jquery-1.8.3.min.js" type="text/javascript"></script>
-<script>
-
-$("nav a") // цикл по всем пунктам меню
-  .each(function(i) {
-    if (i != 0) { // Клонирование нужно только в случае более одного пункта
-      $("#beep")
-        .clone()
-        .attr("s1", "beep-" + i)
-        .appendTo($(this).parent());
-    }
-    $(this).data("beeper", i); // сохраняем ссылку
-  })
-  .mouseenter(function() {
-    $("#beep-" + $(this).data("beeper"))[0].play();
-  });
-$("#beep").attr("id", "beep-0"); // изменяем первый элемент в соответствии с условиями именования
 
 
-</script>
-<div class="sound"> </div>
 
 <div class="content_img">
-<div class="img1"><img src="1.jpg" alt=""></div>
-<div class="img2"><img src="2.jpg" alt=""></div>
-<div class="img3"><img src="3.jpg" alt=""></div>
+<div class="img1" value="PLAY"  onmouseover="play1()" onmouseout="stop1()"><img src="1.jpg"  alt=""></div>
+<div class="img2" value="PLAY"  onmouseover="play2()" onmouseout="stop2()"><img src="2.jpg"  alt=""></div>
+<div class="img3" value="PLAY"  onmouseover="play3()" onmouseout="stop3()"><img src="3.jpg"  alt=""></div>
 </div>
 
 
@@ -90,5 +90,10 @@ $("#beep").attr("id", "beep-0"); // изменяем первый элемент
 
 
  </div>
+ <audio id="audio1" src="s1.mp3" ></audio>
+ <audio id="audio2" src="s2.mp3" ></audio>
+ <audio id="audio3" src="s3.mp3" ></audio>
+
+
 </body>
 </html>
